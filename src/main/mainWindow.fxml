@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainWindowController">
-   <children>
-      <Label fx:id="labelText" layoutX="386.0" layoutY="32.0" text="" />
-      <Button fx:id="button1" layoutX="374.0" layoutY="62.0" mnemonicParsing="false" text="Kliknij tutaj" onAction="#buttonClicked" />
-   </children>
-</Pane>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           fx:controller="main.MainWindowController" xmlns="http://javafx.com/javafx/11.0.1"
+           xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button fx:id="button1" mnemonicParsing="false" text="Button" StackPane.alignment="TOP_RIGHT">
+            <StackPane.margin>
+                <Insets right="10.0" top="60.0"/>
+            </StackPane.margin>
+        </Button>
+        <Label fx:id="labelText" text="Label" StackPane.alignment="TOP_CENTER">
+            <StackPane.margin>
+                <Insets left="10.0" top="30.0"/>
+            </StackPane.margin>
+        </Label>
+    </children>
+    <padding>
+        <Insets left="10.0"/>
+    </padding>
+</StackPane>

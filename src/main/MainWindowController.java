@@ -1,5 +1,6 @@
 package main;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -22,8 +23,12 @@ public class MainWindowController implements Initializable {
         labelText.setText("program wystartowal");
     }
 
-    public void buttonClicked()
-    {
+    public void buttonClicked() {
         labelText.setText("button zostal wcisniety");
+    }
+
+    public static void closeProgram() {
+        Platform.exit();
+        System.exit(0);
     }
 }
