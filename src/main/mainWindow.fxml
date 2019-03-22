@@ -5,12 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.StackPane?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-           fx:controller="main.MainWindowController" xmlns="http://javafx.com/javafx/11.0.1"
-           xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="600.0"
+           prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="main.MainWindowController">
     <children>
-        <Button fx:id="button1" mnemonicParsing="false" text="Button" StackPane.alignment="TOP_RIGHT">
+        <Button fx:id="button1" mnemonicParsing="false" text="Button" StackPane.alignment="TOP_RIGHT"
+                onAction="#buttonClicked">
             <StackPane.margin>
                 <Insets right="10.0" top="60.0"/>
             </StackPane.margin>
@@ -21,7 +21,4 @@
             </StackPane.margin>
         </Label>
     </children>
-    <padding>
-        <Insets left="10.0"/>
-    </padding>
 </StackPane>
