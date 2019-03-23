@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import menu_util.MenuUtilities;
@@ -22,6 +23,9 @@ public class MainWindow extends Application {
 
         MainWindowController controller = (MainWindowController) loader.getController();
         controller.setStage(primaryStage);
+
+        controller.button1.setGraphic(new ImageView("main/exit.png")); //dodanie ikony do buttona
+        controller.button2.setGraphic(new ImageView("main/boar.png"));
 
         stackPane.getChildren().add(MenuUtilities.prepareMenu());
         stackPane.setAlignment(Pos.TOP_LEFT);
