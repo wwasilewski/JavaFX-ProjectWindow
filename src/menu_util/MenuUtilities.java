@@ -15,8 +15,8 @@ public class MenuUtilities {
 
         MenuBar menuBar = new MenuBar(); //tworzy sam pasek menu
 
-        Menu plikMenu = new Menu("Plik"); //tworzy element "Plik"
-        MenuItem plikZamknij = new MenuItem("Zamknij"); //tworzy element "Zamknij" dla "Plik"
+        Menu plikMenu = new Menu("File"); //tworzy element "Plik"
+        MenuItem plikZamknij = new MenuItem("Close"); //tworzy element "Zamknij" dla "Plik"
         plikZamknij.setGraphic(new ImageView("main/exit.png")); //dodanie ikony do Zamknij
         plikZamknij.setOnAction(e -> MainWindowController.closeProgram()); //dodanie akcji do Zamknij
 

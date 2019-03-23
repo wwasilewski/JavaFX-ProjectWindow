@@ -32,7 +32,7 @@ public class MainWindow extends Application {
         primaryStage.setMinHeight(300d);
         primaryStage.setMinWidth(300d);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Projekt Okna");
+        primaryStage.setTitle("Project Window");
         primaryStage.show();
 
         primaryStage.setOnCloseRequest((e) -> MainWindowController.closeProgram());
