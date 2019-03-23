@@ -5,11 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import menu_util.MenuUtilities;
 
+/**
+ * @author Wojciech Wasilewski
+ * @date Created on 21.03.2019
+ */
 public class MainWindow extends Application {
 
     @Override
@@ -24,13 +27,11 @@ public class MainWindow extends Application {
         MainWindowController controller = (MainWindowController) loader.getController();
         controller.setStage(primaryStage);
 
-        controller.button1.setGraphic(new ImageView("main/exit.png")); //dodanie ikony do buttona
-        controller.button2.setGraphic(new ImageView("main/boar.png"));
-
         stackPane.getChildren().add(MenuUtilities.prepareMenu());
         stackPane.setAlignment(Pos.TOP_LEFT);
 
         primaryStage.getIcons().add(new Image("main/boar.png"));
+        primaryStage.setOnCloseRequest((e) -> MainWindowController.closeProgram());
         primaryStage.setHeight(600d);
         primaryStage.setWidth(900d);
         primaryStage.setMinHeight(300d);
@@ -39,7 +40,6 @@ public class MainWindow extends Application {
         primaryStage.setTitle("Project Window");
         primaryStage.show();
 
-        primaryStage.setOnCloseRequest((e) -> MainWindowController.closeProgram());
     }
 
     public static void main(String[] args) {
