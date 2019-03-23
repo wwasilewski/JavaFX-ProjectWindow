@@ -32,7 +32,7 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    ImageView imageview;
+    ImageView imageview, imageview2;
 
     @FXML
     Label labelText;
@@ -104,9 +104,11 @@ public class MainWindowController implements Initializable {
         System.exit(0);
     }
 
-    // metoda do wyswietlenia obrazu dzika
+    // metoda do wyswietlenia obrazu dzika i drugiego obrazu zamkniecia
     public void handleButtonAction(ActionEvent event) {
         Image image = new Image("main/boar.png");
         imageview.setImage(image);
+        Image image2 = new Image("main/exit.png");
+        imageview2.setImage(image2);
     }
 }
