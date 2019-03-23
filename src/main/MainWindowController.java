@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 public class MainWindowController implements Initializable {
 
     private Stage stage;
+    static ToggleGroup tg; //do radiobuttonow zeby nie zaznaczaly sie razem
 
     public Stage getStage() {
         return stage;
@@ -45,7 +46,8 @@ public class MainWindowController implements Initializable {
     @FXML
     RadioButton female, male;
 
-    static ToggleGroup tg; //do radiobuttonow zeby nie zaznaczaly sie razem
+    @FXML
+    CheckBox chk1;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,6 +60,7 @@ public class MainWindowController implements Initializable {
         rblist.add(female); //dodanie female do listy
         rblist.add(male);
         MainWindowController.prepareRadioButtons(rblist); //podpiecie metody do kontrolera - z moja lista radibuttonow
+        chk1.setSelected(true); //ustawienie zaznaczenia na starcie
     }
 
     //metoda do wrzucenia radiobuttonow do listy zeby mozna bylo zaznaczyc tylko 1 opcje
@@ -77,7 +80,15 @@ public class MainWindowController implements Initializable {
         String clickedName = selectedRB.getText();
 
         textField1.setText("Id: " + clicked + ", " + "Name: " + clickedName);
+    }
 
+    public void checkboxClicked() {
+        boolean checked = chk1.isSelected();
+        if (checked) {
+            textField1.appendText(" CheckBox selected");
+        } else {
+            textField1.appendText(" CheckBox NOT selected");
+        }
     }
 
     //metoda do zmiany tekstu po kliknieciu buttona
