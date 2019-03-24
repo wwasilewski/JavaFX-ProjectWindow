@@ -30,7 +30,10 @@ public class MainWindow extends Application {
         stackPane.getChildren().add(MenuUtilities.prepareMenu());
         stackPane.setAlignment(Pos.TOP_LEFT);
 
-        MainWindowController.addControls(stackPane);
+        //dodawanie elementow w taki sposob (w MainWindowController) aby nie zasmiecac klasy MainWindow
+        MainWindowController.addControls(stackPane); //dodanie ComboBoxa i Labela
+        MainWindowController.addControls2(stackPane); //dodanie 2 ComboBoxa i Labela
+
         primaryStage.getIcons().add(new Image("main/boar.png"));
         primaryStage.setOnCloseRequest((e) -> MainWindowController.closeProgram());
         primaryStage.setHeight(600d);

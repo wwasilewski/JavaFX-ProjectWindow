@@ -57,6 +57,10 @@ public class MainWindowController implements Initializable {
 
     static ComboBox combo;
 
+    static Label lbl, lbl2;
+
+    static String[] daysOfWeek = {"mon", "tue", "wen", "thu", "fri", "sat", "sun"};
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -99,6 +103,13 @@ public class MainWindowController implements Initializable {
         }
     }
 
+    //metoda do pokazywania dni tygodnia w drugim ComboBoxie (lista Stringow)
+    public static void giveDayOfTheWeek() {
+        if (null != combo.getValue().toString()) {
+            lbl2.setText(combo.getValue().toString());
+        }
+    }
+
     //metoda do zmiany tekstu po kliknieciu buttona
     public void buttonClicked() {
         String txtFromTextField = textField1.getText();
@@ -122,7 +133,7 @@ public class MainWindowController implements Initializable {
 
     //metoda po to aby nie zasmiecac klasy MainWindow - dodajemy tu kontrolki
     public static void addControls(StackPane stackPane) {
-        Label lbl = new Label();
+        lbl = new Label();
         lbl.setText("TESTING LABEL");
         StackPane.setMargin(lbl, new Insets(380, 10, 10, 10));
         stackPane.getChildren().add(lbl);
@@ -154,6 +165,23 @@ public class MainWindowController implements Initializable {
         );
 
         StackPane.setMargin(combo, new Insets(330, 10, 10, 10));
+        stackPane.getChildren().add(combo);
+    }
+
+    //druga wersja tej metody - latwiejsze dodawanie ComboBoxa
+    public static void addControls2(StackPane stackPane) {
+        lbl2 = new Label();
+        lbl2.setText("SECOND TESTING LABEL");
+        StackPane.setMargin(lbl2, new Insets(380, 10, 10, 320));
+        stackPane.getChildren().add(lbl2);
+
+        //dodanie listy Stringow do ComboBoxa
+        combo = new ComboBox(FXCollections.observableArrayList(daysOfWeek));
+
+        //ustawienie akcji na ten ComboBox
+        combo.setOnAction(event -> MainWindowController.giveDayOfTheWeek());
+
+        StackPane.setMargin(combo, new Insets(330, 10, 10, 320));
         stackPane.getChildren().add(combo);
     }
 }
