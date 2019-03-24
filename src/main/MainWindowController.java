@@ -1,12 +1,18 @@
 package main;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -48,6 +54,8 @@ public class MainWindowController implements Initializable {
 
     @FXML
     CheckBox chk1;
+
+    static ComboBox combo;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -104,11 +112,48 @@ public class MainWindowController implements Initializable {
         System.exit(0);
     }
 
-    // metoda do wyswietlenia obrazu dzika i drugiego obrazu zamkniecia
+    //metoda do wyswietlenia obrazu dzika i drugiego obrazu zamkniecia
     public void handleButtonAction(ActionEvent event) {
         Image image = new Image("main/boar.png");
         imageview.setImage(image);
         Image image2 = new Image("main/exit.png");
         imageview2.setImage(image2);
+    }
+
+    //metoda po to aby nie zasmiecac klasy MainWindow - dodajemy tu kontrolki
+    public static void addControls(StackPane stackPane) {
+        Label lbl = new Label();
+        lbl.setText("TESTING LABEL");
+        StackPane.setMargin(lbl, new Insets(380, 10, 10, 10));
+        stackPane.getChildren().add(lbl);
+
+        //tworze liste obiektow Cars zeby potem je dodac do ComboBoxa
+        ObservableList<Cars> carsList = FXCollections.observableArrayList(
+                new Cars("FI", "Fiat"),
+                new Cars("FO", "Ford"),
+                new Cars("ME", "Mercedes"),
+                new Cars("VW", "Volkswagen")
+        );
+
+        combo = new ComboBox(carsList);
+
+        //chce aby po wyborze zmienialo mi label TESTING LABEL na to co wybralem
+        combo.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Cars>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Cars> observableValue, Cars cars, Cars t1) {
+                        if (null != t1) {
+                            if (null != cars) {
+                                lbl.setText(t1.getName() + "(" + t1.getCode() + ") previousValue: " + cars);
+                            } else {
+                                lbl.setText(t1.getName() + "(" + t1.getCode() + ")");
+                            }
+                        }
+                    }
+                }
+        );
+
+        StackPane.setMargin(combo, new Insets(330, 10, 10, 10));
+        stackPane.getChildren().add(combo);
     }
 }

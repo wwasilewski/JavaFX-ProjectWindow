@@ -30,6 +30,7 @@ public class MainWindow extends Application {
         stackPane.getChildren().add(MenuUtilities.prepareMenu());
         stackPane.setAlignment(Pos.TOP_LEFT);
 
+        MainWindowController.addControls(stackPane);
         primaryStage.getIcons().add(new Image("main/boar.png"));
         primaryStage.setOnCloseRequest((e) -> MainWindowController.closeProgram());
         primaryStage.setHeight(600d);
@@ -39,7 +40,6 @@ public class MainWindow extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Project Window");
         primaryStage.show();
-
     }
 
     public static void main(String[] args) {
