@@ -139,7 +139,7 @@ public class MainWindowController implements Initializable {
 
         //chce aby po wyborze zmienialo mi label TESTING LABEL na to co wybralem
         combo.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<Cars>() {
+                new ChangeListener<Cars>() { //trzeba recznie dodac te Cars i potem przyslonic metode ponownie
                     @Override
                     public void changed(ObservableValue<? extends Cars> observableValue, Cars cars, Cars t1) {
                         if (null != t1) {
