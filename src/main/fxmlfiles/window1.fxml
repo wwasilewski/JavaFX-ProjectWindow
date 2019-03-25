@@ -3,10 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.StackPane?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="164.0"
+<StackPane fx:controller="main.windows.Window1Controller" maxHeight="-Infinity" maxWidth="-Infinity"
+           minHeight="-Infinity"
+           minWidth="-Infinity" prefHeight="164.0"
            prefWidth="366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Button fx:id="window1Close" mnemonicParsing="false" text="Close"/>
+        <Button fx:id="window1Close" mnemonicParsing="false" text="Close" onAction="#closeWindow1"/>
     </children>
 </StackPane>

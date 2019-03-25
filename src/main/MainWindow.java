@@ -24,12 +24,8 @@ public class MainWindow extends Application {
         StackPane stackPane = loader.load();
         Scene scene = new Scene(stackPane);
 
-        MainWindowController controller = (MainWindowController) loader.getController();
-        controller.setStage(primaryStage);
-
         stackPane.getChildren().add(MenuUtilities.prepareMenu());
         stackPane.setAlignment(Pos.TOP_LEFT);
-
 
         primaryStage.getIcons().add(new Image("main/boar.png"));
         primaryStage.setOnCloseRequest((e) -> MainWindowController.closeProgram());
