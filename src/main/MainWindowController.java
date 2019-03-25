@@ -47,7 +47,12 @@ public class MainWindowController implements Initializable {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+    }
 
+    //metoda do otwierania okna nr2 - nieco inaczej niz przy oknie nr1
+    public void openWindow2() throws IOException {
+        Window2 window2 = new Window2();
+        window2.openWindow2();
     }
 
     //metoda zamykajaca poprawnie program
